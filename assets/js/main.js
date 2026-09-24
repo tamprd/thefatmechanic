@@ -45,7 +45,7 @@
   $$("a", nav).forEach(a => a.addEventListener("click", () => setMenu(false)));
   addEventListener("keydown", e => { if (e.key === "Escape" && nav.classList.contains("is-open")) { setMenu(false); menuBtn.focus(); } });
 
-  const navLinks = $$('.nav a[href^="#"]:not([data-filter])');
+  const navLinks = $$('.nav a[href^="#"]');
   if ("IntersectionObserver" in window) {
     const io = new IntersectionObserver(entries => {
       entries.forEach(en => {
@@ -53,58 +53,8 @@
         navLinks.forEach(a => a.classList.toggle("is-active", a.getAttribute("href") === "#" + en.target.id));
       });
     }, { rootMargin: "-45% 0px -50% 0px" });
-    ["videos", "story", "events", "merch", "contact"].forEach(id => { const s = document.getElementById(id); if (s) io.observe(s); });
+    ["story", "events", "merch", "contact"].forEach(id => { const s = document.getElementById(id); if (s) io.observe(s); });
   }
-
-  /* ---------- Videos ---------- */
-  const tagLabels = { projects: "Projects", tips: "Tips & fixes", realtalk: "Real talk", oscar: "Oscar" };
-  const grid = $("[data-videos]"), empty = $("[data-videos-empty]");
-  const videos = (C.videos || []).slice(0, 8);
-  const videoId = url => (String(url).match(/\/video\/(\d+)/) || [])[1];
-
-  function renderVideos(filter = "all") {
-    const list = videos.filter(v => filter === "all" || v.tag === filter);
-    grid.innerHTML = list.map((v, i) => `
-      <button class="vid" type="button" data-i="${videos.indexOf(v)}" aria-label="Play: ${esc(v.title || "TikTok video")}">
-        ${v.thumb ? `<img src="${esc(v.thumb)}" alt="" loading="lazy">` : ""}
-        <span class="vid-play" aria-hidden="true"><svg class="ico"><use href="#i-play"/></svg></span>
-        <span class="vid-cap">${v.tag ? `<span class="vid-tag">${esc(tagLabels[v.tag] || v.tag)}</span><br>` : ""}${esc(v.title || "")}</span>
-      </button>`).join("");
-    empty.hidden = list.length > 0;
-  }
-  renderVideos();
-
-  // Pull thumbnail + caption from TikTok for any real video link without a thumb
-  videos.forEach(v => {
-    if (v.thumb || !videoId(v.url)) return;
-    fetch("https://www.tiktok.com/oembed?url=" + encodeURIComponent(v.url))
-      .then(r => (r.ok ? r.json() : Promise.reject()))
-      .then(d => { v.thumb = d.thumbnail_url; if (!v.title && d.title) v.title = d.title.slice(0, 70); renderVideos(currentFilter); })
-      .catch(() => {});
-  });
-
-  let currentFilter = "all";
-  function setFilter(f) {
-    currentFilter = f;
-    $$(".chip").forEach(c => { const on = c.dataset.chip === f; c.classList.toggle("is-on", on); c.setAttribute("aria-pressed", on); });
-    renderVideos(f);
-  }
-  $$(".chip").forEach(c => c.addEventListener("click", () => setFilter(c.dataset.chip)));
-  $$("[data-filter]").forEach(a => a.addEventListener("click", () => setFilter(a.dataset.filter)));
-
-  // Modal player
-  const modal = $("[data-modal]"), frame = $("[data-modal-frame]");
-  grid.addEventListener("click", e => {
-    const b = e.target.closest(".vid"); if (!b) return;
-    const v = videos[+b.dataset.i]; const id = videoId(v.url);
-    if (!id || !modal.showModal) { window.open(v.url || socials.tiktok, "_blank", "noopener"); return; }
-    frame.innerHTML = `<iframe src="https://www.tiktok.com/player/v1/${id}?autoplay=1&music_info=1&description=1&rel=0" allow="autoplay; fullscreen; encrypted-media" allowfullscreen title="${esc(v.title || "TikTok video")}"></iframe>`;
-    modal.showModal();
-  });
-  const closeModal = () => { modal.close(); };
-  $("[data-modal-close]").addEventListener("click", closeModal);
-  modal.addEventListener("click", e => { if (e.target === modal) closeModal(); });
-  modal.addEventListener("close", () => (frame.innerHTML = ""));
 
   /* ---------- Events ---------- */
   $("[data-events]").innerHTML = (C.events || []).map(ev => {

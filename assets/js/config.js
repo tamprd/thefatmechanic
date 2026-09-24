@@ -16,42 +16,19 @@ window.TFM = {
 
   tiktokFollowers: "100K+",
 
-  /* ---------- VIDEOS -----------------------------------------------------
-     Paste a TikTok video link (from Share > Copy link, the long form:
-     https://www.tiktok.com/@thefatmechanic/video/1234567890123456789).
-     - If "thumb" is blank, the site tries to pull the thumbnail + caption
-       from TikTok automatically.
-     - "tag" drives the filter buttons: projects | tips | realtalk | oscar
-     - First 8 are shown. Newest at the top.
-     ---------------------------------------------------------------------- */
-  videos: [
-    { url: "https://www.tiktok.com/@thefatmechanic", title: "Under the bonnet with the supervisor", tag: "projects", thumb: "assets/img/under-the-bonnet.webp" },
-    { url: "https://www.tiktok.com/@thefatmechanic", title: "Oscar's quality control inspection",    tag: "oscar",    thumb: "assets/img/real-oscar.webp" },
-    { url: "https://www.tiktok.com/@thefatmechanic", title: "Brakes: when to actually worry",         tag: "tips",     thumb: "assets/img/card-tips.webp" },
-    { url: "https://www.tiktok.com/@thefatmechanic", title: "Straight talk from the workshop",        tag: "realtalk", thumb: "assets/img/real-adam.webp" },
-    { url: "https://www.tiktok.com/@thefatmechanic", title: "Project car: bad idea, good times",      tag: "projects", thumb: "assets/img/card-projects.webp" },
-    { url: "https://www.tiktok.com/@thefatmechanic", title: "The tools I'd actually buy again",       tag: "tips",     thumb: "assets/img/card-tools.webp" }
-  ],
-
   /* ---------- EVENTS ----------------------------------------------------- */
   events: [
     {
       title: "Budget Enduro",
-      blurb: "Grassroots endurance racing that doesn't need a second mortgage. Run by Tampered Motorsport.",
-      img: "assets/img/card-events.webp",
-      url: ""   // e.g. "https://budgetenduro.com.au"
+      blurb: "$1,000 to enter. Real cars, real people, real racing. Grassroots endurance racing that doesn't need a second mortgage.",
+      img: "assets/img/event-budget-enduro.webp",
+      url: "https://www.budgetenduro.com.au"
     },
     {
       title: "Tampered Motorsport",
-      blurb: "The crew behind the events. Track time, timing and good people running it properly.",
-      img: "assets/img/card-projects.webp",
-      url: ""
-    },
-    {
-      title: "VIP Track Days",
-      blurb: "Bring your road car, get it on a real circuit, and find out what it can actually do.",
-      img: "assets/img/card-story.webp",
-      url: ""
+      blurb: "The crew behind Budget Enduro. Track time, timing and good people running events properly.",
+      img: "assets/img/event-tampered.webp",
+      url: "https://tamperedmotorsport.com.au"
     }
   ],
 
