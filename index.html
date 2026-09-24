@@ -53,9 +53,6 @@
 
       <nav class="nav" id="nav" aria-label="Main">
         <ul>
-          <li><a href="#videos">Videos</a></li>
-          <li><a href="#videos" data-filter="projects">Projects</a></li>
-          <li><a href="#videos" data-filter="tips">Tips</a></li>
           <li><a href="#story">The story</a></li>
           <li><a href="#events">Events</a></li>
           <li><a href="#merch">Merch</a></li>
@@ -93,7 +90,7 @@
           <a class="btn btn-lime" data-social-link="tiktok" href="https://www.tiktok.com/@thefatmechanic" target="_blank" rel="noopener">
             <svg class="ico" aria-hidden="true"><use href="#i-tiktok"/></svg>Watch on TikTok<svg class="ico arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
           </a>
-          <a class="btn btn-ghost" href="#videos">Latest videos<svg class="ico arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn-ghost" href="#story">The story<svg class="ico arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </div>
         <p class="hero-proof"><strong data-followers>100K+</strong> people following along on TikTok</p>
       </div>
@@ -101,12 +98,12 @@
 
     <!-- ============ TILES ============ -->
     <section class="tiles wrap" aria-label="Explore">
-      <a class="tile" href="#videos" data-filter="projects">
+      <a class="tile" data-social-link="tiktok" href="https://www.tiktok.com/@thefatmechanic" target="_blank" rel="noopener">
         <img src="assets/img/card-projects.webp" alt="" loading="lazy" width="640" height="440">
         <div class="tile-body"><h2>Projects</h2><p>Builds, repairs and questionable decisions.</p></div>
         <svg class="ico tile-arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
       </a>
-      <a class="tile" href="#videos" data-filter="tips">
+      <a class="tile" data-social-link="tiktok" href="https://www.tiktok.com/@thefatmechanic" target="_blank" rel="noopener">
         <img src="assets/img/card-tips.webp" alt="" loading="lazy" width="640" height="264">
         <div class="tile-body"><h2>Tips &amp; fixes</h2><p>Real advice from the workshop.</p></div>
         <svg class="ico tile-arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
@@ -123,24 +120,6 @@
       </a>
     </section>
 
-    <!-- ============ VIDEOS ============ -->
-    <section class="section videos" id="videos" aria-labelledby="videos-title">
-      <div class="wrap">
-        <div class="section-head">
-          <h2 class="brush-title" id="videos-title">Latest from TikTok</h2>
-          <a class="text-link" data-social-link="tiktok" href="https://www.tiktok.com/@thefatmechanic" target="_blank" rel="noopener">See everything on @thefatmechanic</a>
-        </div>
-        <div class="chips" role="group" aria-label="Filter videos">
-          <button class="chip is-on" data-chip="all" aria-pressed="true">All</button>
-          <button class="chip" data-chip="projects" aria-pressed="false">Projects</button>
-          <button class="chip" data-chip="tips" aria-pressed="false">Tips &amp; fixes</button>
-          <button class="chip" data-chip="realtalk" aria-pressed="false">Real talk</button>
-          <button class="chip" data-chip="oscar" aria-pressed="false">Oscar</button>
-        </div>
-        <div class="video-grid" data-videos aria-live="polite"></div>
-        <p class="empty" data-videos-empty hidden>Nothing in this one yet. Try another filter, or catch the lot on TikTok.</p>
-      </div>
-    </section>
 
     <!-- ============ STORY ============ -->
     <section class="section story" id="story" aria-labelledby="story-title">
@@ -299,7 +278,7 @@
       <img class="footer-logo" src="assets/img/logo-stacked.webp" alt="The Fat Mechanic. Keep livin' large." width="720" height="687">
       <div class="footer-links">
         <nav aria-label="Footer">
-          <a href="#videos">Videos</a><a href="#story">The story</a><a href="#events">Events</a><a href="#merch">Merch</a><a href="#contact">Contact</a>
+          <a href="#story">The story</a><a href="#events">Events</a><a href="#merch">Merch</a><a href="#contact">Contact</a>
         </nav>
         <div class="footer-social" data-socials></div>
         <p class="small">&copy; <span data-year>2026</span> The Fat Mechanic. Made in Ipswich, QLD. No bulls**t, just cars.</p>
@@ -310,11 +289,6 @@
     </div>
   </footer>
 
-  <!-- ============ VIDEO MODAL ============ -->
-  <dialog class="modal" data-modal aria-label="TikTok video">
-    <button class="modal-close" data-modal-close aria-label="Close video">&times;</button>
-    <div class="modal-frame" data-modal-frame></div>
-  </dialog>
 
   <!-- ============ ICON SPRITE ============ -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
