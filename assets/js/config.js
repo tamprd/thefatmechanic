@@ -32,6 +32,18 @@ window.TFM = {
     }
   ],
 
+  /* ---------- COLLABS / BRAND PARTNERS ---------------------------------
+     logo: drop the brand's official logo in assets/img/partners/ and put
+     the path here (SVG or transparent PNG works best). bg = tile colour. Until a logo is
+     added, the brand name shows as text.
+     ---------------------------------------------------------------------- */
+  partners: [
+    { name: "The Man Shake", logo: "assets/img/partners/the-man-shake.webp", bg: "#000000", url: "" },
+    { name: "SP Tools",      logo: "assets/img/partners/sp-tools.webp",      bg: "#ffffff", url: "" },
+    { name: "TOPDON",        logo: "assets/img/partners/topdon.webp",        bg: "#ffffff", url: "" }
+  ],
+  mediaKitUrl: "",   // link to a PDF media kit. Blank = button hidden.
+
   /* ---------- MERCH ------------------------------------------------------
      storeUrl: where "Shop merch" goes (Shopify, Printful, Square Online…).
      Leave blank and the buttons send people to the contact form instead.

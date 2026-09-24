@@ -53,7 +53,7 @@
         navLinks.forEach(a => a.classList.toggle("is-active", a.getAttribute("href") === "#" + en.target.id));
       });
     }, { rootMargin: "-45% 0px -50% 0px" });
-    ["story", "events", "merch", "contact"].forEach(id => { const s = document.getElementById(id); if (s) io.observe(s); });
+    ["story", "events", "collab", "merch", "contact"].forEach(id => { const s = document.getElementById(id); if (s) io.observe(s); });
   }
 
   /* ---------- Events ---------- */
@@ -69,6 +69,22 @@
       ? `<a class="event" href="${esc(ev.url)}" target="_blank" rel="noopener">${inner}</a>`
       : `<article class="event">${inner}</article>`;
   }).join("");
+
+  /* ---------- Collabs ---------- */
+  const pr = $("[data-partners]");
+  if (pr) {
+    const list = C.partners || [];
+    pr.innerHTML = list.map(p => {
+      const inner = p.logo
+        ? `<img src="${esc(p.logo)}" alt="${esc(p.name)}" loading="lazy">`
+        : `<span class="partner-name">${esc(p.name)}</span>`;
+      const st = p.bg ? ` style="--tile:${esc(p.bg)}"` : "";
+      return `<li${st}>${p.url ? `<a class="partner-tile" href="${esc(p.url)}" target="_blank" rel="noopener">${inner}</a>` : `<div class="partner-tile">${inner}</div>`}</li>`;
+    }).join("");
+    if (!list.length) pr.closest(".partners").hidden = true;
+  }
+  if (C.mediaKitUrl) { const mk = $("[data-media-kit]"); mk.href = C.mediaKitUrl; mk.hidden = false; }
+  $$("[data-collab-cta]").forEach(a => a.addEventListener("click", () => { const s = $("#f-topic"); if (s) s.value = "Collab or sponsorship"; }));
 
   /* ---------- Merch ---------- */
   const M = C.merch || {};
