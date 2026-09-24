@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://thefatmechanic.com.au/sitemap.xml
