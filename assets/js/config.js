@@ -64,7 +64,7 @@ window.TFM = {
      If blank, the form opens the visitor's email app addressed to "email".
      ---------------------------------------------------------------------- */
   contact: {
-    email: "hello@thefatmechanic.com.au",   // CHANGE ME to a real inbox
+    email: "adam@thefatmechanic.com.au",
     formEndpoint: ""                         // e.g. "https://formspree.io/f/xxxxxxx"
   },
 
