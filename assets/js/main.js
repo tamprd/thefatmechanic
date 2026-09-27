@@ -130,7 +130,7 @@
     if (cc.formEndpoint) {
       const btn = $("button[type=submit]", form); btn.disabled = true;
       try {
-        const r = await fetch(cc.formEndpoint, { method: "POST", headers: { Accept: "application/json" }, body: new FormData(form) });
+        const r = await fetch(cc.formEndpoint, { method: "POST", headers: { Accept: "application/json", "Content-Type": "application/json" }, body: JSON.stringify(data) });
         if (!r.ok) throw 0;
         form.reset(); status.classList.add("ok"); status.textContent = "Message sent. I'll get back to you soon.";
       } catch {

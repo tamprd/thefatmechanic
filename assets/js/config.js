@@ -60,12 +60,12 @@ window.TFM = {
   },
 
   /* ---------- CONTACT ----------------------------------------------------
-     formEndpoint: a Formspree / Basin / Web3Forms URL to receive messages.
+     formEndpoint: where the form posts. "/api/contact" = the Resend function in /api.
      If blank, the form opens the visitor's email app addressed to "email".
      ---------------------------------------------------------------------- */
   contact: {
     email: "adam@thefatmechanic.com.au",
-    formEndpoint: ""                         // e.g. "https://formspree.io/f/xxxxxxx"
+    formEndpoint: "/api/contact"   // Vercel function that emails you via Resend. Blank = opens visitor's email app.
   },
 
   /* ---------- SITE CREDIT --------------------------------------------- */
